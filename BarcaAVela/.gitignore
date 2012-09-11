@@ -1,0 +1,8 @@
+bin
+lib
+libs
+gen
+*.apk
+*.dex
+*.class
+*.ap_
