@@ -11,7 +11,14 @@
         android:id="@+id/menu_settings"
         android:icon="@drawable/ic_action_settings"
         android:orderInCategory="100"
-        android:showAsAction="withText"
+        android:showAsAction="never"
         android:title="@string/menu_settings"/>
+    <item
+        android:id="@+id/menu_trigger"
+        android:icon="@drawable/ic_action_trigger"
+        android:orderInCategory="2"
+        android:showAsAction="ifRoom"
+        android:title="@string/actionbar_trigger">
+    </item>
 
 </menu>

@@ -14,5 +14,8 @@
     <string name="none_found">Nessun dispositivo trovato</string>
     <string name="select_device">Seleziona dispositivo</string>
     <string name="title_activity_devices">Seleziona dispositivo</string>
+    <string name="actionbar_bluetooth">Gestione bluetooth</string>
+    <string name="actionbar_settings">Impostazioni</string>
+    <string name="actionbar_trigger">Impostazione trigger</string>
 
 </resources>

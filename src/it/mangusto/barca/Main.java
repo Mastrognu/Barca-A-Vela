@@ -1,15 +1,16 @@
 package it.mangusto.barca;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-public class Main extends Activity {
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+public class Main extends SherlockActivity {
 	
 	private int REQUEST_ENABLE_BT = 1;
 	private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -19,7 +20,7 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        getActionBar().setHomeButtonEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
         
         // Attivo il Bluetooth se non è già attivo
         enableBt();
@@ -42,8 +43,13 @@ public class Main extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    	getSupportMenuInflater().inflate(R.menu.main, menu);
+    	/*
+    	menu.add(R.string.actionbar_bluetooth).setIcon(R.drawable.ic_action_bluetooth).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    	menu.add(R.string.actionbar_trigger).setIcon(R.drawable.ic_action_trigger).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+    	menu.add(R.string.actionbar_settings).setIcon(R.drawable.ic_action_settings).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        */
+    	return true;
     }
 
     
@@ -57,6 +63,10 @@ public class Main extends Activity {
             case R.id.menu_bluetooth:
             	Intent intentDiscoverDevices = new Intent(this, DiscoverDevices.class);
         		startActivity(intentDiscoverDevices);
+            	return true;
+            	
+            case R.id.menu_trigger:
+            	Toast.makeText(getApplicationContext(),"Trigger",Toast.LENGTH_SHORT).show();
             	return true;
             	
             case R.id.menu_settings:            	
