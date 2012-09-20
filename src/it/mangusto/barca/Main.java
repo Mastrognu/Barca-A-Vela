@@ -21,7 +21,6 @@ public class Main extends SherlockActivity {
         setContentView(R.layout.main);
         
         getSupportActionBar().setHomeButtonEnabled(false);
-        setTheme(R.style.Theme_Sherlock_Light_DarkActionBar_ForceOverflow);
         
         // Attivo il Bluetooth se non è già attivo
         enableBt();
