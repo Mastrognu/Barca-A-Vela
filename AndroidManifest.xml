@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.mangusto.barca"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="@string/app_versionName" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -19,7 +19,7 @@
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -29,10 +29,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.mangusto.barca.Main" />
         </activity>
-        <service android:name="it.makersf.barca.BlueToothService"
+        <activity
+            android:name=".Preferences"
+            android:label="@string/title_activity_preferences" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.mangusto.barca.MainActivity" />
+        </activity>
+                <service android:name="it.makersf.barca.BlueToothService"
             android:process=":remote">
         </service>
-        
+
     </application>
 
 </manifest>

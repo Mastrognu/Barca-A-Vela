@@ -17,5 +17,21 @@
     <string name="actionbar_bluetooth">Gestione bluetooth</string>
     <string name="actionbar_settings">Impostazioni</string>
     <string name="actionbar_trigger">Impostazione trigger</string>
+    <string name="title_activity_preferences">Impostazioni</string>
+    <string name="prefs_title_alarm">Impostazione allarme</string>
+    <string name="prefs_title_info">Info</string>
+    <string name="prefs_ringtone">Seleziona suoneria</string>
+    <string name="trigger_time_15min">15 Minuti</string>
+    <string name="trigger_time_30min">30 minuti</string>
+    <string name="trigger_time_60min">60 minuti</string>
+    <string name="trigger_time_90min">90 minuti</string>
+    <string name="trigger_time_120min">120 minuti</string>
+    <string name="prefs_time_trigger">Tempo di trigger</string>
+    <string name="prefs_time_trigger_sub">Seleziona ogni quanto l\'applicazione riceve i dati dal dispositivo hardware</string>
+    <string name="prefs_ringtone_sub">Seleziona la suoneria per l\'allarme</string>
+    <string name="prefs_vibrate">Vibrazione</string>
+    <string name="prefs_vibrate_sub">Selezionando il checkbox il dispositivo vibrerà durante l\'allarme</string>
+    <string name="prefs_version">Versione dell\'applicazione</string>
+    <string name="app_versionName">0.1 BETA</string>
 
 </resources>

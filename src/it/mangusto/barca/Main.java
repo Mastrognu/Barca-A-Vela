@@ -153,10 +153,13 @@ public class Main extends SherlockActivity {
 				Toast.makeText(getApplicationContext(),"Trigger",Toast.LENGTH_SHORT).show();
 				return true;
 
-			case R.id.menu_settings:
-				Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+			case R.id.menu_settings:   	
+            	Intent intentPreferences = new Intent(this, Preferences.class);
+        		startActivity(intentPreferences);
+            	return true;
+            	
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

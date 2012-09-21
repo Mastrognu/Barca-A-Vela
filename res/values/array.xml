@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_trigger_time_options">
+        <item>@string/trigger_time_15min</item>
+        <item>@string/trigger_time_30min</item>
+        <item>@string/trigger_time_60min</item>
+        <item>@string/trigger_time_90min</item>
+        <item>@string/trigger_time_120min</item>
+    </string-array>
+    <string-array name="list_trigger_time_values">
+        <item>15</item>
+        <item>30</item>@string/app_versionName
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+    </string-array>
+
+</resources>
