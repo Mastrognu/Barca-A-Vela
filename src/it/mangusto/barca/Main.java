@@ -70,7 +70,8 @@ public class Main extends SherlockActivity {
             	return true;
             	
             case R.id.menu_settings:            	
-            	Toast.makeText(getApplicationContext(),"Settings",Toast.LENGTH_SHORT).show();
+            	Intent intentPreferences = new Intent(this, Preferences.class);
+        		startActivity(intentPreferences);
             	return true;
             	
         }

@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <PreferenceCategory></PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/prefs_title_alarm" >
+        <RingtonePreference
+            android:summary="@string/prefs_ringtone_sub"
+            android:title="@string/prefs_ringtone" />
+
+        <ListPreference
+            android:entries="@array/list_trigger_time_options"
+            android:entryValues="@array/list_trigger_time_values"
+            android:summary="@string/prefs_time_trigger_sub"
+            android:title="@string/prefs_time_trigger" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/prefs_title_info" >
+        <Preference
+            android:summary="@string/app_versionName"
+            android:title="@string/prefs_version" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

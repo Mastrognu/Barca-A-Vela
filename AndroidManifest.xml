@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.mangusto.barca"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="@string/app_versionName" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -29,7 +29,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.mangusto.barca.Main" />
         </activity>
-        
+        <activity
+            android:name=".Preferences"
+            android:label="@string/title_activity_preferences" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="it.mangusto.retina.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
