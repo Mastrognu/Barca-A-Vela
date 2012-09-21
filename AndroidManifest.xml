@@ -29,6 +29,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.mangusto.barca.Main" />
         </activity>
+        <service android:name="it.makersf.barca.BlueToothService"
+            android:process=":remote">
+        </service>
         
     </application>
 
