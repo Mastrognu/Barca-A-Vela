@@ -17,6 +17,9 @@ public class BlueToothService extends Service {
 	public static final String BDL_CLASS_IDENTIFIER = "ClassIdentifier";
 	public static final String BDL_DEVICE = "DeviceToConnectTo";
 
+	public static final String BROADCAST_ACTION = "it.makersf.barca.bluetoothservice.appmessages";
+	public static final String BROADCAST_EXTRA_NAME = "it.makersf.barca.bluetoothservice.extraname";
+
 	/* usare il notification manager per segnalare lo stato del servizio*/
 	NotificationManager mNotificationManager;
 	HashMap<String, BlueToothThread> mClients = new HashMap<String, BlueToothThread>(1);

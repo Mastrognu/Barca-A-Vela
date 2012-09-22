@@ -30,6 +30,8 @@ public class ServiceCommunicator {
 	private ServiceConnection mConnection;
 	private BluetoothAdapter mBTAdapter;
 
+	private int mLastValue;
+
 	public ServiceCommunicator(Main pApp) {
 		mApp = pApp;
 		mConnection = new AppServiceConnection(this);
@@ -43,6 +45,13 @@ public class ServiceCommunicator {
 
 		filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
 		mApp.registerReceiver(mBluetoothMessageReceiver, filter);
+
+		filter = new IntentFilter(BlueToothService.BROADCAST_ACTION);
+		mApp.registerReceiver(mServiceMessageReceiver, filter);
+	}
+
+	public int getLastValue() {
+		return mLastValue;
 	}
 
 	public void attemptServiceConnection() {
@@ -190,6 +199,15 @@ public class ServiceCommunicator {
 				//NOTA: anche il servizio può registrare un broadcast receiver, per cui
 				//si può decidere di gestire il tutto da servizio e notificare l'app con un intent
 			}
+		}
+	};
+
+	private final BroadcastReceiver mServiceMessageReceiver = new BroadcastReceiver() {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			//String action = intent.getAction();
+			mLastValue = intent.getBundleExtra(BlueToothService.BROADCAST_EXTRA_NAME).getInt("value");
 		}
 	};
 

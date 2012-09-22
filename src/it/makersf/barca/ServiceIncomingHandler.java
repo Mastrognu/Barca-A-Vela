@@ -17,7 +17,7 @@ class ServiceIncomingHandler extends Handler {
 		switch (msg.what) {
 		case BlueToothService.MSG_REGISTER_CLIENT:
 		{
-			BlueToothThread thread = new BlueToothThread();
+			BlueToothThread thread = new BlueToothThread(mService);
 			mService.mClients.put(msg.getData().getString(BlueToothService.BDL_CLASS_IDENTIFIER), thread);
 			//Note: il thread non è ancora stato fatto partire.
 			//Sarà comunicato con un messaggio a quale MAC collegarsi, solo allora partirà
