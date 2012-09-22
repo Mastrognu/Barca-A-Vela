@@ -18,13 +18,13 @@ class AppServiceConnection implements ServiceConnection{
 
 	@Override
 	public void onServiceConnected(ComponentName name, IBinder service) {
-		mCommunicator.mService = new Messenger(service);
+		mCommunicator.setMessanger(new Messenger(service));
 		try {
 			Message msg = Message.obtain(null, BlueToothService.MSG_REGISTER_CLIENT);
 			Bundle passedBundle = new Bundle();
 			passedBundle.putString(BlueToothService.BDL_CLASS_IDENTIFIER, Main.CLASS_IDENTIFIER);
 			msg.setData(passedBundle);
-			mCommunicator.mService.send(msg);
+			mCommunicator.getMessanger().send(msg);
 
 		} catch (RemoteException e) {
 			/* Il servizio è crashato prima che potessimo
@@ -36,7 +36,7 @@ class AppServiceConnection implements ServiceConnection{
 
 	@Override
 	public void onServiceDisconnected(ComponentName name) {
-		mCommunicator.mService = null;
+		mCommunicator.setMessanger(null);
 		mCommunicator.attemptServiceConnection();
 	}
 }

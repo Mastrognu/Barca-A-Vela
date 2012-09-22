@@ -1,8 +1,11 @@
 package it.mangusto.barca;
 
+import java.util.Set;
+
 import it.makersf.barca.BlueToothService;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -17,8 +20,9 @@ public class ServiceCommunicator {
 	public static final int REQUEST_ENABLE_BT = 1;
 
 	private final Main mApp;
-	Messenger mService;
+	private Messenger mService;
 	private boolean mIsBound;
+	private CallBack mNewDeviceCallBack;
 
 	private ServiceConnection mConnection;
 
@@ -55,6 +59,27 @@ public class ServiceCommunicator {
 		}
 	}
 
+	/**
+	 * @param pNewDeviceDiscoveredCallBack Ogni volta che viene rilevato un nuovo device, viene chiamato il metodo di questa Callback
+	 * @return
+	 */
+	public Set<BluetoothDevice> requestDeviceList(CallBack pNewDeviceDiscoveredCallBack) {
+		mNewDeviceCallBack = pNewDeviceDiscoveredCallBack;
+		//TODO
+		return null;
+	}
+
+	public void connectToDevice(BluetoothDevice pDevice) {
+		//TODO
+	}
+
+	Messenger getMessanger() {
+		return mService;
+	}
+
+	void setMessanger(Messenger pMessanger) {
+		mService = pMessanger;
+	}
 	//===========================================================
 	// Private Methods
 	//===========================================================
@@ -85,5 +110,9 @@ public class ServiceCommunicator {
 		mApp.unbindService(mConnection);
 		mIsBound = false;
 		}
+	}
+
+	static interface CallBack {
+		void onNewDeviceDiscovered(BluetoothDevice pDevice);
 	}
 }
