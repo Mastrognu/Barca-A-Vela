@@ -1,8 +1,10 @@
-package it.mangusto.barca;
+package it.mangusto.barca.serverInterface;
 
 import java.util.Set;
 
 import it.makersf.barca.BlueToothService;
+import it.mangusto.barca.BaVCostants;
+import it.mangusto.barca.Main;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -17,7 +19,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 
-public class ServiceCommunicator {
+public class ServiceCommunicator implements IServerInterface{
 
 	public static final int REQUEST_ENABLE_BT = 1;
 
@@ -56,7 +58,7 @@ public class ServiceCommunicator {
 	public void attemptServiceConnection() {
 		// Attivo il Bluetooth se non è già attivo
 		if (mBTAdapter == null) {
-			mApp.unusableBlueTooth(BLUETOOTH_FAILED_CONNECTION.BLUETOOTH_NOT_SUPPORTED);
+			mApp.unusableBlueTooth(BLUETOOTH_ERROR_REASON.BLUETOOTH_NOT_SUPPORTED);
 		}
 
 		if (mBTAdapter.isEnabled()) {
@@ -76,7 +78,7 @@ public class ServiceCommunicator {
 		if(resultCode == Activity.RESULT_OK) {
 			doBindService();
 		} else {
-			mApp.unusableBlueTooth(BLUETOOTH_FAILED_CONNECTION.UNABLE_TO_TURN_ON_BLUETOOTH);
+			mApp.unusableBlueTooth(BLUETOOTH_ERROR_REASON.UNABLE_TO_TURN_ON_BLUETOOTH);
 		}
 	}
 
@@ -215,12 +217,12 @@ public class ServiceCommunicator {
 		void onDiscoveryFinished();
 	}
 
-	static enum BLUETOOTH_FAILED_CONNECTION {
+	public static enum BLUETOOTH_ERROR_REASON {
 		BLUETOOTH_NOT_SUPPORTED(0),
 		UNABLE_TO_TURN_ON_BLUETOOTH(1);
 
 		public final int CODE;
-		BLUETOOTH_FAILED_CONNECTION(int pValue) {
+		BLUETOOTH_ERROR_REASON(int pValue) {
 			CODE = pValue;
 		}
 	}

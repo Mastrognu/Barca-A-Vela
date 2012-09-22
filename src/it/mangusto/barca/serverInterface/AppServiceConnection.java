@@ -1,6 +1,7 @@
-package it.mangusto.barca;
+package it.mangusto.barca.serverInterface;
 
 import it.makersf.barca.BlueToothService;
+import it.mangusto.barca.Main;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.Bundle;
