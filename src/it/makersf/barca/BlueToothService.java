@@ -12,7 +12,10 @@ public class BlueToothService extends Service {
 
 	public static final int MSG_REGISTER_CLIENT = 1;
 	public static final int MSG_UNREGISTER_CLIENT = 2;
+	public static final int MSG_DEVICE_TO_CONNECT = 3;
+
 	public static final String BDL_CLASS_IDENTIFIER = "ClassIdentifier";
+	public static final String BDL_DEVICE = "DeviceToConnectTo";
 
 	/* usare il notification manager per segnalare lo stato del servizio*/
 	NotificationManager mNotificationManager;
