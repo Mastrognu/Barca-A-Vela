@@ -1,13 +1,8 @@
 bin
-
 lib
-
 gen
-
+*.orig
 *.apk
-
 *.dex
-
 *.class
-
 *.ap_
