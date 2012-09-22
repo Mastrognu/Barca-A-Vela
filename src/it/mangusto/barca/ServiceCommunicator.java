@@ -18,8 +18,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 public class ServiceCommunicator {
-	public static final int BLUETOOTH_NOT_SUPPORTED = 0;
-	public static final int UNABLE_TO_TURN_ON_BLUETOOTH = 1;
+
 	public static final int REQUEST_ENABLE_BT = 1;
 
 	private final Main mApp;
@@ -57,7 +56,7 @@ public class ServiceCommunicator {
 	public void attemptServiceConnection() {
 		// Attivo il Bluetooth se non è già attivo
 		if (mBTAdapter == null) {
-			mApp.unusableBlueTooth(BLUETOOTH_NOT_SUPPORTED);
+			mApp.unusableBlueTooth(BLUETOOTH_FAILED_CONNECTION.BLUETOOTH_NOT_SUPPORTED);
 		}
 
 		if (mBTAdapter.isEnabled()) {
@@ -77,7 +76,7 @@ public class ServiceCommunicator {
 		if(resultCode == Activity.RESULT_OK) {
 			doBindService();
 		} else {
-			mApp.unusableBlueTooth(UNABLE_TO_TURN_ON_BLUETOOTH);
+			mApp.unusableBlueTooth(BLUETOOTH_FAILED_CONNECTION.UNABLE_TO_TURN_ON_BLUETOOTH);
 		}
 	}
 
@@ -214,5 +213,15 @@ public class ServiceCommunicator {
 	static interface DiscoverDeviceCallBack {
 		void onNewDeviceDiscovered(BluetoothDevice pDevice);
 		void onDiscoveryFinished();
+	}
+
+	static enum BLUETOOTH_FAILED_CONNECTION {
+		BLUETOOTH_NOT_SUPPORTED(0),
+		UNABLE_TO_TURN_ON_BLUETOOTH(1);
+
+		public final int CODE;
+		BLUETOOTH_FAILED_CONNECTION(int pValue) {
+			CODE = pValue;
+		}
 	}
 }

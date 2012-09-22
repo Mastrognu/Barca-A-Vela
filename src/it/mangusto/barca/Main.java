@@ -35,7 +35,7 @@ public class Main extends SherlockActivity {
 			mCommunicator.onResultFromBlueToothEnableRequest(resultCode, data);
 	}
 
-	void unusableBlueTooth(final int pReason) {
+	void unusableBlueTooth(final ServiceCommunicator.BLUETOOTH_FAILED_CONNECTION pReason) {
 		/* TODO
 		 * questa classe viene chiamata quando il bluetooth non è supportato
 		 * o non si riesce ad accendere il sensore.
@@ -78,5 +78,10 @@ public class Main extends SherlockActivity {
 				return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onDestroy() {
+		mCommunicator.onDestroy();
 	}
 }
